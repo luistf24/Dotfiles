@@ -1,0 +1,184 @@
+set encoding=utf-8
+
+set shortmess +=I
+colorscheme nord
+set termguicolors
+
+set title
+set number 
+set ruler
+
+set tabstop=4
+set number relativenumber
+
+set fillchars+=vert:\ 
+highlight VertSplit cterm=NONE
+
+set cmdheight=1
+set foldcolumn=1
+
+set wildmenu
+
+" Portapapeles 
+
+set mouse+=a 
+set clipboard=unnamedplus
+set showcmd
+
+" Iluminar linea
+
+autocmd InsertEnter * set cul
+autocmd InsertLeave * set nocul
+
+" Seleción de búsqueda
+
+set backspace=indent,eol,start
+
+" Cursor
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
+
+
+" personal settings
+
+source $HOME/.vim/scripts/lightline.vim
+source $HOME/.vim/scripts/coc.vim
+
+" -------------------------------------------------------------------------------------------------
+
+
+" BACKUP FILE
+
+set backup
+set backupdir=~/private/tmp
+set dir=~/private/tmp
+
+let g:workspace_session_directory = $HOME . '/.vim/sessions/'
+
+" -------------------------------------------------------------------------------------------------
+
+
+"  NERDTREE
+
+let g:NERDTreeWinPos = "left"
+let NERDTreeShowHidden=0
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+let g:NERDTreeWinSize=30
+let g:NERDTreeMouseMode = 2
+let NERDTreeMinimalUI = 1
+"let NERDTreeDirArrows = 1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeGitStatusUseNerdFonts = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
+
+let g:windowswap_map_keys = 0 "prevent default bindings
+nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
+nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
+nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
+
+let g:workspace_autosave_always = 1
+
+" -------------------------------------------------------------------------------------------------
+
+
+" KEYBINDINGS
+
+let mapleader=","
+let maplocalleader ="."
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>Wq :wq<CR>
+nnoremap <leader>Qq :q! <CR>
+nnoremap <leader>QA :qa <CR>
+nnoremap <leader>t :below terminal<CR>
+nnoremap <leader>Ts :vertical terminal<CR>
+nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
+nnoremap <leader>u :u<CR>
+nnoremap <leader>v :vsplit<CR>
+nnoremap <C-]> :vertical resize +2<CR>
+nnoremap <C-_> :vertical resize -2<CR>
+nnoremap <leader>++ :resize +2<CR>
+nnoremap <leader>-- :resize -2<CR>
+nnoremap <leader>bn :bn <CR>
+nnoremap <leader>bp :bp <CR>
+nnoremap <leader>ls :ls <CR>
+nnoremap <leader>p  :+gP<CR>
+nnoremap <leader>nh :nohlsearch<CR>
+nnoremap <leader>gg :Buffers<CR>
+nnoremap <leader>gf :GFilesWithDevicons<CR>
+nnoremap <leader>F 	:FilesWithDevicons<CR>
+nnoremap <silent> <leader>f :RgWithDevicons<CR>
+nnoremap <leader>vv :Codi<CR>
+nnoremap <leader>vq :Codi!<CR>
+
+" -------------------------------------------------------------------------------------------------
+
+
+" VIM FUGITIVE
+
+nnoremap <leader>gs :Git<CR>
+nnoremap <leader>gc :Git commit<CR>
+nnoremap <leader>ga :Git add<CR>
+nnoremap <leader>gp :Git push<CR>
+
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
+
+" -------------------------------------------------------------------------------------------------
+
+
+" ALACRITTY
+
+let &term = "xterm-256color"
+
+" -------------------------------------------------------------------------------------------------
+
+
+" LIGHTLINE
+
+set laststatus=2
+set splitbelow
+
+" -------------------------------------------------------------------------------------------------
+
+
+" CONFIGURACIÓN DE FZF
+
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+
+" -------------------------------------------------------------------------------------------------
+
+
+" PLUGINS
+
+call plug#begin()
+Plug 'preservim/NERDTree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'junegunn/vim-easy-align'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tc50cal/vim-terminal'
+Plug 'mileszs/ack.vim'
+Plug 'wesq3/vim-windowswap'
+Plug 'itchyny/vim-cursorword'
+Plug 'Badacadabra/vim-archery'
+Plug 'vim-scripts/guicolorscheme.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'preservim/nerdcommenter'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-fugitive'
+Plug 'Townk/vim-autoclose'
+Plug 'coreyja/fzf.devicon.vim'
+Plug 'psliwka/vim-smoothie'
+Plug 'metakirby5/codi.vim'
+call plug#end()
+
