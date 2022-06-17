@@ -238,6 +238,7 @@ exec_always redshift -P -O 3300
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec_always compton
 exec_always dunst
+exec_always ~/cosas/i3-alternating-layout/alternating_layouts.py
 
 ### i3-gaps stuff ###
 
