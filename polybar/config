@@ -96,13 +96,14 @@ font-4 = "Material Icons Round:9;4"
 font-5 = "Source Han Sans CN:size=9;2"
 font-6 = "Iosevka Nerd Font:size=18;4"
 
+
 ;; _-_-_-_-_-_-_-_-_-_ Modules / Tray positions _-_-_-_-_-_-_-_-_-_-_-_
 
 tray-position = left
 tray-background = #725AC1
-modules-left = i3 title
+modules-left = i3
 modules-center = date
-modules-right = spotify pulseaudio battery wired-network wlan
+modules-right = spotify temp pulseaudio battery  wired-network wlan
 
 cursor-click = pointer
 
@@ -122,14 +123,16 @@ type = internal/battery
 battery = BAT0
 adapter = AC
 full-at = 98
+format-prefix = "  "
 
-format-charging =  <label-charging>
+format-charging =  <label-charging>  
+format-charging-prefix = "  "
 format-charging-underline = #ffb52a
 format-charging-foreground = ${colors.yellow}
 format-discharging = <ramp-capacity><label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full = <label-full>
+format-full = <label-full> 
 format-full-foreground =  ${colors.green}
 format-full-prefix = "  "
 ;format-full-prefix-foreground = ${colors.foreground-alt}
@@ -158,7 +161,7 @@ interval = 1
 label-active-font = 1
 time = "%a, %b %d %H:%M:%S"
 
-format = <label>
+format = <label> 
 format-foreground = ${colors.white}
 format-background = ${colors.background}
 format-padding = 0
@@ -180,7 +183,7 @@ content-foreground = ${colors.background}
 type = internal/pulseaudio
 use-ui-max = false
 
-format-volume = <label-volume>
+format-volume = <label-volume> 
 format-volume-padding = 0
 format-volume-prefix = %{T4}  墳%{T-}
 format-volume-prefix-foreground = ${colors.white}
@@ -298,16 +301,40 @@ label-urgent-padding = 1
 [module/spotify]
 type = custom/script
 interval = 1
-format-prefix = " "
-format = 阮 <label>
+format-prefix = "   "
+format =阮 <label> 
 format-foreground = ${colors.green}
 format-background = #000000
-exec = python3 /home/the_dude/.config/polybar/scripts/spotify-status.py -f '{artist}: {song}'
+/*exec = python3 /home/the_dude/.config/polybar/scripts/spotify-status.py -f '{artist}: {song}'*/
+exec = python3 /home/the_dude/.config/polybar/scripts/spotify-status.py -t 0  -f '  '
 format-underline = #1db954
 ;control players (optional)
 click-left = playerctl --player=spotify play-pause 
 click-right = playerctl --player=spotify next 
 click-middle = playerctl --player=spotify previous
+
+
+;; _-_-_-_-_-_-_-_-_- Temperature _-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/temp]
+type = custom/script
+interval = 5
+format-prefix = "  "
+format =  﨎 <label>
+exec = sh ~/.config/polybar/scripts/temperatura.sh
+format-foreground = ${colors.white}
+format-background = ${colors.background}
+
+
+;; _-_-_-_-_-_-_-_-_- Temperature _-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/separation]
+type = custom/script
+interval = 5
+format-prfix = "  "
+exec = sh ~/.config/polybar/scripts/temperatura.sh
+format-foreground = ${colors.white}
+format-background = ${colors.background}
 
 
 ;; _-_-_-_-_-_-_-_-_- Title _-_-_-_-_-_-_-_-_-_-_-_-_
@@ -327,8 +354,10 @@ label-maxlen = 30
 [module/wired-network]
 type = internal/network
 interface = wlp4s0
+/*format-connected-prefix = "  "*/
 format-connected = <label-connected> 
 format-disconnected = <label-disconnected>
+/*format-disconnected-prefix= "  "*/
 label-connected = %local_ip%<->
 label-disconnected = no connection
 format-connected-background = ${colors.green}
@@ -339,10 +368,14 @@ format-connected-foreground = #000000
 ;   None
 label-empty = 
 label-empty-foreground = #707880
-;; _-_-_-_-_-_-_-_-_- Temperature _-_-_-_-_-_-_-_-_-_-_-_-_
 
-;[module/Temperature]
-;type = custom/script
-;exec = ~/.config/polybar/scripts/temperatura.sh
-;interval = 60
 
+;; _-_-_-_-_-_-_-_-_- Redshift _-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/redshift]
+type = custom/script
+format-prefix = " "  
+click-left = sh redshift -P -O 3300
+click-right = sh redshift -P -O 2000
+scroll-down = source ~/.config/polybar/scripts/env.sh && ~/.config/polybar/scripts/redshift.sh decrease
+interval=0.5
