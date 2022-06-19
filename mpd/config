@@ -1,0 +1,7 @@
+music_directory "/home/the_dude/Música"
+playlist_directory "/home/the_dude/.config/mpd/palylists"
+db_file "/home/the_dude/.config/mpd/db"
+log_file "/home/the_dude/.config/mpd/mpd.log"
+pid_file "/home/the_dude/.config/mpd/mpd.pid"
+state_file "/home/the_dude/mpd/mpdstate"
+user "the_dude"
