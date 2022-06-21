@@ -88,32 +88,32 @@ let g:workspace_autosave_always = 1
 
 let mapleader=","
 let maplocalleader ="."
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q<CR>
-nnoremap <leader>Wq :wq<CR>
-nnoremap <leader>Qq :q! <CR>
-nnoremap <leader>QA :qa <CR>
-nnoremap <leader>t :below terminal<CR>
-nnoremap <leader>Ts :vertical terminal<CR>
-nnoremap <C-h> :tabprevious<CR>
-nnoremap <C-l> :tabnext<CR>
-nnoremap <leader>u :u<CR>
-nnoremap <leader>v :vsplit<CR>
-nnoremap <C-]> :vertical resize +2<CR>
-nnoremap <C-_> :vertical resize -2<CR>
-nnoremap <leader>++ :resize +2<CR>
-nnoremap <leader>-- :resize -2<CR>
-nnoremap <leader>bn :bn <CR>
-nnoremap <leader>bp :bp <CR>
-nnoremap <leader>ls :ls <CR>
-nnoremap <leader>p  :+gP<CR>
-nnoremap <leader>nh :nohlsearch<CR>
-nnoremap <leader>gg :Buffers<CR>
-nnoremap <leader>gf :GFilesWithDevicons<CR>
-nnoremap <leader>F 	:FilesWithDevicons<CR>
+nnoremap <leader>w 			:w<CR>
+nnoremap <leader>q 			:q<CR>
+nnoremap <leader>Wq 		:wq<CR>
+nnoremap <leader>Qq 		:q! <CR>
+nnoremap <leader>QA 		:qa <CR>
+nnoremap <leader>t 			:below terminal<CR>
+nnoremap <leader>Ts 		:vertical terminal<CR>
+nnoremap <C-h> 				:tabprevious<CR>
+nnoremap <C-l> 				:tabnext<CR>
+nnoremap <leader>u 			:u<CR>
+nnoremap <leader>v 			:vsplit<CR>
+nnoremap <C-]> 				:vertical resize +2<CR>
+nnoremap <C-_> 				:vertical resize -2<CR>
+nnoremap <leader>++ 		:resize +2<CR>
+nnoremap <leader>-- 		:resize -2<CR>
+nnoremap <leader>bn 		:bn <CR>
+nnoremap <leader>bp 		:bp <CR>
+nnoremap <leader>ls 		:ls <CR>
+nnoremap <leader>p  		:+gP<CR>
+nnoremap <leader>nh 		:nohlsearch<CR>
+nnoremap <leader>gg 		:Buffers<CR>
+nnoremap <leader>gf 		:GFilesWithDevicons<CR>
+nnoremap <leader>F 			:FilesWithDevicons<CR>
 nnoremap <silent> <leader>f :RgWithDevicons<CR>
-nnoremap <leader>vv :Codi<CR>
-nnoremap <leader>vq :Codi!<CR>
+nnoremap <leader>vv 		:Codi<CR>
+nnoremap <leader>vq 		:Codi!<CR>
 
 " -------------------------------------------------------------------------------------------------
 
