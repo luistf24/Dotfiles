@@ -21,7 +21,7 @@ set wildmenu
 
 " Portapapeles 
 
-set mouse+=a 
+"set mouse += a
 set clipboard=unnamedplus
 set showcmd
 
@@ -35,15 +35,18 @@ autocmd InsertLeave * set nocul
 set backspace=indent,eol,start
 
 " Cursor
-let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[4 q"
-let &t_EI = "\<Esc>[2 q"
+
+let &t_EI = "\e[2 q"
+let &t_SI = "\e[5 q"
 
 
 " personal settings
 
 source $HOME/.vim/scripts/lightline.vim
 source $HOME/.vim/scripts/coc.vim
+
+set timeoutlen=1000
+set ttimeoutlen=0
 
 " -------------------------------------------------------------------------------------------------
 
@@ -88,32 +91,33 @@ let g:workspace_autosave_always = 1
 
 let mapleader=","
 let maplocalleader ="."
-nnoremap <leader>w 			:w<CR>
-nnoremap <leader>q 			:q<CR>
-nnoremap <leader>Wq 		:wq<CR>
-nnoremap <leader>Qq 		:q! <CR>
-nnoremap <leader>QA 		:qa <CR>
-nnoremap <leader>t 			:below terminal<CR>
-nnoremap <leader>Ts 		:vertical terminal<CR>
-nnoremap <C-h> 				:tabprevious<CR>
-nnoremap <C-l> 				:tabnext<CR>
-nnoremap <leader>u 			:u<CR>
-nnoremap <leader>v 			:vsplit<CR>
-nnoremap <C-]> 				:vertical resize +2<CR>
-nnoremap <C-_> 				:vertical resize -2<CR>
-nnoremap <leader>++ 		:resize +2<CR>
-nnoremap <leader>-- 		:resize -2<CR>
-nnoremap <leader>bn 		:bn <CR>
-nnoremap <leader>bp 		:bp <CR>
-nnoremap <leader>ls 		:ls <CR>
-nnoremap <leader>p  		:+gP<CR>
-nnoremap <leader>nh 		:nohlsearch<CR>
-nnoremap <leader>gg 		:Buffers<CR>
-nnoremap <leader>gf 		:GFilesWithDevicons<CR>
-nnoremap <leader>F 			:FilesWithDevicons<CR>
-nnoremap <silent> <leader>f :RgWithDevicons<CR>
-nnoremap <leader>vv 		:Codi<CR>
-nnoremap <leader>vq 		:Codi!<CR>
+nnoremap <leader>w 						:w<CR>
+nnoremap <leader>q 						:q<CR>
+nnoremap <leader>Wq 					:wq<CR>
+nnoremap <leader>Qq 					:q! <CR>
+nnoremap <leader>QA 					:qa <CR>
+nnoremap <leader>t 						:below terminal<CR>
+nnoremap <leader>Ts 					:vertical terminal<CR>
+nnoremap <C-h> 							:tabprevious<CR>
+nnoremap <C-l> 							:tabnext<CR>
+nnoremap <leader>u 						:u<CR>
+nnoremap <leader>v 						:vsplit<CR>
+nnoremap <C-]> 							:vertical resize +2<CR>
+nnoremap <C-_> 							:vertical resize -2<CR>
+nnoremap <leader>++ 					:resize +2<CR>
+nnoremap <leader>-- 					:resize -2<CR>
+nnoremap <leader>bn 					:bn <CR>
+nnoremap <leader>bp 					:bp <CR>
+nnoremap <leader>ls 					:ls <CR>
+nnoremap <leader>p  					:+gP<CR>
+nnoremap <leader>nh 					:nohlsearch<CR>
+nnoremap <leader>gg 					:Buffers<CR>
+nnoremap <leader>gf 					:GFilesWithDevicons<CR>
+nnoremap <leader>F 						:FilesWithDevicons<CR>
+nnoremap <silent> <leader>f 			:RgWithDevicons<CR>
+nnoremap <leader>vv 					:Codi<CR>
+nnoremap <leader>vq 					:Codi!<CR>
+nnoremap <leader>r 						:Ranger<CR>
 
 " -------------------------------------------------------------------------------------------------
 
@@ -155,6 +159,13 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 " -------------------------------------------------------------------------------------------------
 
 
+" RANGER INTEGRATION
+
+let g:ranger_map_keys = 0
+
+" -------------------------------------------------------------------------------------------------
+
+
 " PLUGINS
 
 call plug#begin()
@@ -180,5 +191,6 @@ Plug 'Townk/vim-autoclose'
 Plug 'coreyja/fzf.devicon.vim'
 Plug 'psliwka/vim-smoothie'
 Plug 'metakirby5/codi.vim'
+Plug 'francoiscabrol/ranger.vim'
 call plug#end()
 
