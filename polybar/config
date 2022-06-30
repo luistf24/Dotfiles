@@ -102,8 +102,9 @@ font-6 = "Iosevka Nerd Font:size=18;4"
 tray-position = left
 tray-background = #725AC1
 modules-left = i3
-modules-center = date
-modules-right = spotify temp pulseaudio battery  wired-network wlan
+modules-center = date 
+/*modules-right = spotify memory temp pulseaudio battery  wired-network wlan*/
+modules-right = spotify pulseaudio battery memory temp wired-network wlan
 
 cursor-click = pointer
 
@@ -151,8 +152,8 @@ ramp-capacity-4 = "  "
 
 ;ramp-capacity-foreground = ${colors.foreground-alt}
 
-;; _-_-_-_-_-_-_-_ Date/Time -_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
+;; _-_-_-_-_-_-_-_ Date/Time -_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [module/date]
 type = internal/date
@@ -169,11 +170,12 @@ format-padding = 0
 label = %{T1}%time%%{T-}
 label-padding = 1
 
+
 [module/margin]
 type = custom/text
 
-content = %{T2}%{T-}
-content-foreground = ${colors.background}
+content = %{T2}|%{T-}
+content-foreground = ${colors.white}
 
 
 ;;_-_-_-_-_-_-_-_- Volume -_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -208,7 +210,6 @@ click-right = pavucontrol&
 
 
 ;;_-_-_-_-_-_-_-_-_  Wifi -_-_-_-_-_-_-_-_-_-_-_-_-_
-
 
 [module/wlan]
 type = internal/network
@@ -252,7 +253,7 @@ ws-icon-5 = 6;阮
 ws-icon-6 = 7;
 ws-icon-7 = 8;
 ws-icon-8 = 9;
-ws-icon-9 = 10;
+ws-icon-9 = 10;靈
 ws-icon-default = 
 
 
@@ -320,7 +321,7 @@ click-middle = playerctl --player=spotify previous
 type = custom/script
 interval = 5
 format-prefix = "  "
-format =  﨎 <label>
+format =  﨎<label>
 exec = sh ~/.config/polybar/scripts/temperatura.sh
 format-foreground = ${colors.white}
 format-background = ${colors.background}
@@ -374,8 +375,21 @@ label-empty-foreground = #707880
 
 [module/redshift]
 type = custom/script
-format-prefix = " "  
+format-prefix = ""  
 click-left = sh redshift -P -O 3300
 click-right = sh redshift -P -O 2000
 scroll-down = source ~/.config/polybar/scripts/env.sh && ~/.config/polybar/scripts/redshift.sh decrease
 interval=0.5
+
+
+;; _-_-_-_-_-_-_-_-_- RAM  _-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/memory]
+type = internal/memory
+format-prefix = "  "
+format =  <label>
+interval = 3
+warn-percentage = 95
+format-foreground = ${colors.white}
+format-background = ${colors.background}
+
