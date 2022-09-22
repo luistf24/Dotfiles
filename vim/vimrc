@@ -8,6 +8,8 @@ set title
 set number 
 set ruler
 
+set hlsearch
+
 set tabstop=4
 set number relativenumber
 
@@ -89,8 +91,8 @@ let g:workspace_autosave_always = 1
 
 " KEYBINDINGS
 
-let mapleader=","
-let maplocalleader ="."
+let mapleader = ","
+let maplocalleader = "."
 nnoremap <leader>w 						:w<CR>
 nnoremap <leader>q 						:q<CR>
 nnoremap <leader>Wq 					:wq<CR>
@@ -171,13 +173,9 @@ let g:ranger_map_keys = 0
 call plug#begin()
 Plug 'preservim/NERDTree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'junegunn/vim-easy-align'
-Plug 'altercation/vim-colors-solarized'
 Plug 'tc50cal/vim-terminal'
 Plug 'mileszs/ack.vim'
 Plug 'wesq3/vim-windowswap'
-Plug 'itchyny/vim-cursorword'
-Plug 'Badacadabra/vim-archery'
 Plug 'vim-scripts/guicolorscheme.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdcommenter'
@@ -192,5 +190,6 @@ Plug 'coreyja/fzf.devicon.vim'
 Plug 'psliwka/vim-smoothie'
 Plug 'metakirby5/codi.vim'
 Plug 'francoiscabrol/ranger.vim'
+Plug 'wincent/terminus'
 call plug#end()
 
