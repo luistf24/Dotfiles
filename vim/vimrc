@@ -1,6 +1,5 @@
 set encoding=utf-8
 
-set shortmess +=I
 colorscheme nord
 set termguicolors
 
@@ -20,6 +19,13 @@ set cmdheight=1
 set foldcolumn=1
 
 set wildmenu
+
+" Corrector ortográfico
+" zg añade la palabra al diccionario
+" zw la guarda como incorrecta
+
+setlocal spell spelllang=es
+set nospell
 
 " Portapapeles 
 
@@ -50,6 +56,9 @@ source $HOME/.vim/scripts/coc.vim
 set timeoutlen=1000
 set ttimeoutlen=0
 
+
+autocmd VimEnter,VimLeave * silent !tmux set status
+
 " -------------------------------------------------------------------------------------------------
 
 
@@ -67,7 +76,7 @@ let g:workspace_session_directory = $HOME . '/.vim/sessions/'
 "  NERDTREE
 
 let g:NERDTreeWinPos = "left"
-let NERDTreeShowHidden=0
+let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let g:NERDTreeWinSize=30
 let g:NERDTreeMouseMode = 2
@@ -120,6 +129,10 @@ nnoremap <silent> <leader>f 			:RgWithDevicons<CR>
 nnoremap <leader>vv 					:Codi<CR>
 nnoremap <leader>vq 					:Codi!<CR>
 nnoremap <leader>r 						:Ranger<CR>
+nnoremap <leader>sp 					:set spell<CR>
+nnoremap <leader>np 					:set nospell<CR>
+nnoremap <Leader>ss 					:CocCommand rest-client.request <cr>
+noremap <Leader>a :CocCommand rest-client.request <cr>
 
 " -------------------------------------------------------------------------------------------------
 
@@ -172,7 +185,7 @@ let g:ranger_map_keys = 0
 
 call plug#begin()
 Plug 'preservim/NERDTree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tc50cal/vim-terminal'
 Plug 'mileszs/ack.vim'
 Plug 'wesq3/vim-windowswap'
@@ -181,15 +194,16 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'Townk/vim-autoclose'
 Plug 'coreyja/fzf.devicon.vim'
-Plug 'psliwka/vim-smoothie'
+"Plug 'psliwka/vim-smoothie'
 Plug 'metakirby5/codi.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'wincent/terminus'
+"Plug 'gko/vim-coloresque'
 call plug#end()
 
