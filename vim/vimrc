@@ -20,13 +20,6 @@ set foldcolumn=1
 
 set wildmenu
 
-" Corrector ortográfico
-" zg añade la palabra al diccionario
-" zw la guarda como incorrecta
-
-setlocal spell spelllang=es
-set nospell
-
 " Portapapeles 
 
 "set mouse += a
@@ -38,7 +31,7 @@ set showcmd
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 
-" Seleción de búsqueda
+" Selección de búsqueda
 
 set backspace=indent,eol,start
 
@@ -129,7 +122,7 @@ nnoremap <silent> <leader>f 			:RgWithDevicons<CR>
 nnoremap <leader>vv 					:Codi<CR>
 nnoremap <leader>vq 					:Codi!<CR>
 nnoremap <leader>r 						:Ranger<CR>
-nnoremap <leader>sp 					:set spell<CR>
+nnoremap <leader>sp 					:setlocal spell spelllang=es <bar> :set spell<CR>
 nnoremap <leader>np 					:set nospell<CR>
 nnoremap <Leader>ss 					:CocCommand rest-client.request <cr>
 noremap <Leader>a :CocCommand rest-client.request <cr>
