@@ -1,5 +1,7 @@
 set encoding=utf-8
 
+filetype plugin on
+
 colorscheme nord
 set termguicolors
 
@@ -116,9 +118,9 @@ nnoremap <leader>ls 					:ls <CR>
 nnoremap <leader>p  					:+gP<CR>
 nnoremap <leader>nh 					:nohlsearch<CR>
 nnoremap <leader>gg 					:Buffers<CR>
-nnoremap <leader>gf 					:GFilesWithDevicons<CR>
-nnoremap <leader>F 						:FilesWithDevicons<CR>
-nnoremap <silent> <leader>f 			:RgWithDevicons<CR>
+nnoremap <leader>gf 					:GFiles<CR>
+nnoremap <leader>F 						:Files<CR>
+nnoremap <silent> <leader>f 			:Rg<CR>
 nnoremap <leader>vv 					:Codi<CR>
 nnoremap <leader>vq 					:Codi!<CR>
 nnoremap <leader>r 						:Ranger<CR>
@@ -167,12 +169,18 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 " -------------------------------------------------------------------------------------------------
 
 
+" VIMTEX
+let g:vimtex_view_method = 'zathura'
+
+" -------------------------------------------------------------------------------------------------
+
+
+
 " RANGER INTEGRATION
 
 let g:ranger_map_keys = 0
 
 " -------------------------------------------------------------------------------------------------
-
 
 " PLUGINS
 
@@ -196,7 +204,5 @@ Plug 'coreyja/fzf.devicon.vim'
 "Plug 'psliwka/vim-smoothie'
 Plug 'metakirby5/codi.vim'
 Plug 'francoiscabrol/ranger.vim'
-Plug 'wincent/terminus'
-"Plug 'gko/vim-coloresque'
+Plug 'lervag/vimtex'
 call plug#end()
-
