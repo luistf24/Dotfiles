@@ -52,7 +52,7 @@ set timeoutlen=1000
 set ttimeoutlen=0
 
 
-autocmd VimEnter,VimLeave * silent !tmux set status
+"autocmd VimEnter,VimLeave * silent !tmux set status
 
 " -------------------------------------------------------------------------------------------------
 
@@ -71,7 +71,7 @@ let g:workspace_session_directory = $HOME . '/.vim/sessions/'
 "  NERDTREE
 
 let g:NERDTreeWinPos = "left"
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden=0
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let g:NERDTreeWinSize=30
 let g:NERDTreeMouseMode = 2
@@ -89,6 +89,7 @@ nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
 nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 
 let g:workspace_autosave_always = 1
+let g:NERDTreeLimitedSyntax = 1
 
 " -------------------------------------------------------------------------------------------------
 
@@ -107,11 +108,11 @@ nnoremap <leader>Ts 					:vertical terminal<CR>
 nnoremap <C-h> 							:tabprevious<CR>
 nnoremap <C-l> 							:tabnext<CR>
 nnoremap <leader>u 						:u<CR>
-nnoremap <leader>v 						:vsplit<CR>
-nnoremap <C-]> 							:vertical resize +2<CR>
-nnoremap <C-_> 							:vertical resize -2<CR>
-nnoremap <leader>++ 					:resize +2<CR>
-nnoremap <leader>-- 					:resize -2<CR>
+nnoremap <leader>vv						:vsplit<CR>
+nnoremap <Space>v+						:vertical resize +2<CR>
+nnoremap <Space>v-						:vertical resize -2<CR>
+nnoremap <Space>+	 					:resize +2<CR>
+nnoremap <Space>- 						:resize -2<CR>
 nnoremap <leader>bn 					:bn <CR>
 nnoremap <leader>bp 					:bp <CR>
 nnoremap <leader>ls 					:ls <CR>
@@ -162,10 +163,13 @@ set splitbelow
 
 " CONFIGURACIÓN DE FZF
 
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+"command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
-
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
 " -------------------------------------------------------------------------------------------------
 
 
@@ -205,4 +209,5 @@ Plug 'coreyja/fzf.devicon.vim'
 Plug 'metakirby5/codi.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'lervag/vimtex'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 call plug#end()

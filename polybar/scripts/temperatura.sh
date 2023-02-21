@@ -1,3 +1,3 @@
 #!/bin/sh
 
-sensors | grep temp1 | awk -F: '{ gsub(/ /,""); print $2}'
+sensors | grep CPU | awk -F: '{ gsub(/ /,""); print $2}'
