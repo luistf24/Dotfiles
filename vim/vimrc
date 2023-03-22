@@ -1,6 +1,7 @@
 set encoding=utf-8
 
 filetype plugin on
+syntax enable
 
 colorscheme nord
 set termguicolors
@@ -8,6 +9,7 @@ set termguicolors
 set title
 set number 
 set ruler
+set scrolloff=6
 
 set hlsearch
 
@@ -127,8 +129,10 @@ nnoremap <leader>vq 					:Codi!<CR>
 nnoremap <leader>r 						:Ranger<CR>
 nnoremap <leader>sp 					:setlocal spell spelllang=es <bar> :set spell<CR>
 nnoremap <leader>np 					:set nospell<CR>
-nnoremap <Leader>ss 					:CocCommand rest-client.request <cr>
-noremap <Leader>a :CocCommand rest-client.request <cr>
+nnoremap <leader>ss 					:CocCommand rest-client.request <cr>
+noremap <leader>a 						:CocCommand rest-client.request <cr>
+nnoremap <leader>lt						:colorscheme one <bar> :set background=light<CR>
+nnoremap <leader>dt						:colorscheme nord<CR>
 
 " -------------------------------------------------------------------------------------------------
 
@@ -210,4 +214,7 @@ Plug 'metakirby5/codi.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'lervag/vimtex'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'rakr/vim-one'
+Plug 'wincent/terminus'
+Plug 'rafi/awesome-vim-colorschemes'
 call plug#end()

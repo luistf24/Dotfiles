@@ -99,10 +99,11 @@ font-6 = "Iosevka Nerd Font:size=18;4"
 
 ;; _-_-_-_-_-_-_-_-_-_ Modules / Tray positions _-_-_-_-_-_-_-_-_-_-_-_
 
-tray-position = right
-tray-background = ${colors.background}
+tray-position = left
+tray-background = #725AC1
 modules-left = i3
 modules-center = date 
+/*modules-right = spotify memory temp pulseaudio battery  wired-network wlan*/
 modules-right = spotify pulseaudio battery memory temp wired-network wlan
 
 cursor-click = pointer
@@ -125,7 +126,7 @@ adapter = AC
 full-at = 98
 format-prefix = "  "
 
-format-charging = BAT <label-charging>  
+format-charging =  <label-charging>  
 format-charging-prefix = "  "
 format-charging-underline = #ffb52a
 format-charging-foreground = ${colors.yellow}
@@ -134,20 +135,20 @@ format-discharging-underline = ${self.format-charging-underline}
 
 format-full = <label-full> 
 format-full-foreground =  ${colors.green}
-format-full-prefix = " BAT "
+format-full-prefix = "  "
 ;format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
 label-charging = %percentage%%
 label-discharging = %percentage%%
-label-full = FULL
+label-full = Full
 
-ramp-capacity-0 = " BAT "
+ramp-capacity-0 = "  "
 ramp-capacity-0-foreground = #de0037
-ramp-capacity-1 = " BAT "
-ramp-capacity-2 = " BAT "
-ramp-capacity-3 = " BAT "
-ramp-capacity-4 = " BAT "
+ramp-capacity-1 = "  "
+ramp-capacity-2 = "  "
+ramp-capacity-3 = "  "
+ramp-capacity-4 = "  "
 
 ;ramp-capacity-foreground = ${colors.foreground-alt}
 
@@ -184,9 +185,9 @@ content-foreground = ${colors.white}
 type = internal/pulseaudio
 use-ui-max = false
 
-format-volume = VOL<label-volume> %{T-}
+format-volume = <label-volume> 
 format-volume-padding = 0
-format-volume-prefix = %{T4} %{T-}
+format-volume-prefix = %{T4}  墳%{T-}
 format-volume-prefix-foreground = ${colors.white}
 format-volume-prefix-background = ${colors.background}
 label-volume = %{T1} %percentage%%%{T-} 
@@ -194,13 +195,13 @@ label-volume-foreground = ${colors.white}
 label-volume-background = ${colors.background}
 label-volume-padding = 0
 
-format-muted = <label-muted> %{T-}
+format-muted = <label-muted>
 format-muted-padding = 0
-format-muted-prefix = NO VOL 
+format-muted-prefix = %{T4}  婢 %{T-}
  
 format-muted-prefix-foreground = ${colors.white}
 format-muted-prefix-background = ${colors.background}
-label-muted = %{T-}
+label-muted = %{T1}%percentage%%%{T-}
 label-muted-foreground = ${colors.white}
 label-muted-background = ${colors.background}
 label-muted-padding = 0
@@ -217,7 +218,7 @@ interval = 1.0
 
 format-connected = <label-connected>
 format-connected-padding = 0
-label-connected = %{A1:wifimenu:}RED %essid%%{A}
+label-connected = %{A1:wifimenu:}%essid%%{A}
 label-connected-foreground = ${colors.black}
 label-connected-background = ${colors.green}
 label-connected-padding = 0
@@ -243,17 +244,17 @@ label-active-font = 3
 
 fuzzy-match = true
 
-ws-icon-0 = 1;I
-ws-icon-1 = 2;II
-ws-icon-2 = 3;III
-ws-icon-3 = 4;IV
-ws-icon-4 = 5;V
-ws-icon-5 = 6;VI
-ws-icon-6 = 7;VII
-ws-icon-7 = 8;VIII
-ws-icon-8 = 9;IX
-ws-icon-9 = 10;X
-ws-icon-default = 
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;阮
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;靈
+ws-icon-default = 
 
 
 strip-wsnumbers = true
@@ -266,8 +267,8 @@ label-mode-background = ${colors.vampire3}
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
-
-label-focused-background= ${colors.white}
+label-focused-background = ${colors.vampire2}
+label-focused-underline= ${colors.foreground}
 label-focused-foreground= ${colors.black}
 label-focused-padding = 1
 
@@ -278,7 +279,7 @@ label-unfocused-background = ${colors.background}
 label-unfocused-foreground = ${colors.white}
 
 ; visible = Active workspace on unfocused monitor
-label-visible = 
+label-visible = %icon% 
 label-visible-background = ${self.label-unfocused-background}
 label-visible-foreground = ${self.label-unfocused-foreground}
 label-visible-underline = ${self.label-unfocused-underline}
@@ -287,7 +288,7 @@ label-visible-padding = ${self.label-unfocused-padding}
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon% 
 label-urgent-background = ${colors.red}
-label-urgent-foreground = ${colors.background}
+label-urgent-foreground = ${colors.black}
 label-urgent-padding = 1
 
 ; Separator in between workspaces
@@ -302,7 +303,7 @@ label-urgent-padding = 1
 type = custom/script
 interval = 1
 format-prefix = "   "
-format =SPO<label> 
+format =阮 <label> 
 format-foreground = ${colors.green}
 format-background = #000000
 /*exec = python3 /home/the_dude/.config/polybar/scripts/spotify-status.py -f '{artist}: {song}'*/
@@ -319,8 +320,8 @@ click-middle = playerctl --player=spotify previous
 [module/temp]
 type = custom/script
 interval = 5
-format-prefix = " "
-format = TEMP <label> %{T-}
+format-prefix = "  "
+format =  﨎<label> |
 exec = sh ~/.config/polybar/scripts/temperatura.sh
 format-foreground = ${colors.white}
 format-background = ${colors.background}
@@ -358,7 +359,7 @@ interface = wlp4s0
 format-connected = <label-connected> 
 format-disconnected = <label-disconnected>
 /*format-disconnected-prefix= "  "*/
-label-connected = IP %local_ip%<->
+label-connected = %local_ip%<->
 label-disconnected = no connection
 format-connected-background = ${colors.green}
 format-connected-foreground = #000000
@@ -386,8 +387,7 @@ interval=0.5
 [module/memory]
 type = internal/memory
 format-prefix = "  "
-format =  RAM <label> %{T-}
-
+format =  <label>
 interval = 3
 warn-percentage = 95
 format-foreground = ${colors.white}
