@@ -3,7 +3,8 @@ set encoding=utf-8
 filetype plugin on
 syntax enable
 
-colorscheme nord
+colorscheme iceberg
+set background=dark
 set termguicolors
 
 set title
@@ -124,15 +125,11 @@ nnoremap <leader>gg 					:Buffers<CR>
 nnoremap <leader>gf 					:GFiles<CR>
 nnoremap <leader>F 						:Files<CR>
 nnoremap <silent> <leader>f 			:Rg<CR>
-nnoremap <leader>vv 					:Codi<CR>
-nnoremap <leader>vq 					:Codi!<CR>
 nnoremap <leader>r 						:Ranger<CR>
 nnoremap <leader>sp 					:setlocal spell spelllang=es <bar> :set spell<CR>
 nnoremap <leader>np 					:set nospell<CR>
-nnoremap <leader>ss 					:CocCommand rest-client.request <cr>
-noremap <leader>a 						:CocCommand rest-client.request <cr>
-nnoremap <leader>lt						:colorscheme one <bar> :set background=light<CR>
-nnoremap <leader>dt						:colorscheme nord<CR>
+nnoremap <leader>lt						:set background=light<CR>
+nnoremap <leader>dt						:set background=dark<CR>
 
 " -------------------------------------------------------------------------------------------------
 
