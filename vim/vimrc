@@ -57,6 +57,7 @@ set ttimeoutlen=0
 
 "autocmd VimEnter,VimLeave * silent !tmux set status
 
+let g:omni_sql_no_default_maps = 1
 " -------------------------------------------------------------------------------------------------
 
 
