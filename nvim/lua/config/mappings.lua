@@ -16,6 +16,7 @@ vim.keymap.set('n', '<leader>gg', '<cmd>Telescope buffers<cr>', {desc = 'Save'})
 vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {desc = 'Save'})
 vim.keymap.set('n', '<leader>gs', '<cmd>Telescope git_status<cr>', {desc = 'Save'})
 vim.keymap.set('n', '<leader>gb', '<cmd>Telescope git_branches<cr>', {desc = 'Save'})
+vim.keymap.set('n', '<leader>gc', '<cmd>Telescope git_commits<cr>', {desc = 'Save'})
 
 -- Nvim-tree
 vim.keymap.set('n', '<C-n>', '<cmd>NvimTreeToggle<cr>', {desc = 'Save'})

@@ -1,9 +1,10 @@
 -- colors
 vim.opt.termguicolors = true
 vim.cmd.colorscheme('monochrome')
+vim.opt.syntax = "on"
 
 -- enable line number and relative line number
-vim.opt.number         = true
+vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- width of a tab
@@ -17,7 +18,5 @@ vim.opt.smartcase = true
 vim.opt.hlsearch = false
 vim.opt.wrap = true
 
--- clipboard
+-- clipboard: xsel
 vim.opt.clipboard = "unnamedplus"
-
-vim.opt.syntax = "on"
