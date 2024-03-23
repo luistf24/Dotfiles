@@ -17,4 +17,7 @@ vim.opt.smartcase = true
 vim.opt.hlsearch = false
 vim.opt.wrap = true
 
+-- clipboard
+vim.opt.clipboard = "unnamedplus"
+
 vim.opt.syntax = "on"

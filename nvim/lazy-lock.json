@@ -2,6 +2,7 @@
   "autoclose.nvim": { "branch": "main", "commit": "dc42806540dcf448ecb2bad6b67204410cfbe629" },
   "lazy.nvim": { "branch": "main", "commit": "af6afefbb46ab29a8a1db69536b04290a9403876" },
   "nvim-tree.lua": { "branch": "master", "commit": "f7c09bd72e50e1795bd3afb9e2a2b157b4bfb3c3" },
+  "nvim-treesitter": { "branch": "master", "commit": "b009aba903565163442f2adecff72bc3193bb8fd" },
   "nvim-web-devicons": { "branch": "master", "commit": "585b2dc4bba2b5973f2b1d3e576709af5ac34fb6" },
   "plenary.nvim": { "branch": "master", "commit": "f7adfc4b3f4f91aab6caebf42b3682945fbc35be" },
   "telescope.nvim": { "branch": "master", "commit": "6312868392331c9c0f22725041f1ec2bef57c751" }
